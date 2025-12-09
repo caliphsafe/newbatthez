@@ -946,8 +946,15 @@
           </div>
 
           <div class="form-card">
-            <!-- TODO: Replace action with your backend endpoint -->
-            <form method="post" action="/submit-rap" enctype="multipart/form-data">
+            <form
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_rap"
+              onsubmit="return handleSubmit(this, 'rap');"
+            >
+              <input type="hidden" name="competitionType" value="rap" />
+
               <div class="field-group">
                 <label for="mc-stage-name">
                   Stage Name<span class="required-star">*</span>
@@ -1041,8 +1048,15 @@
           </div>
 
           <div class="form-card">
-            <!-- TODO: Replace action with your backend endpoint -->
-            <form method="post" action="/submit-visual" enctype="multipart/form-data">
+            <form
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_visual"
+              onsubmit="return handleSubmit(this, 'visual');"
+            >
+              <input type="hidden" name="competitionType" value="visual" />
+
               <div class="field-group">
                 <label for="visual-name">
                   Name<span class="required-star">*</span>
@@ -1130,8 +1144,15 @@
           </div>
 
           <div class="form-card">
-            <!-- TODO: Replace action with your backend endpoint -->
-            <form method="post" action="/submit-beat" enctype="multipart/form-data">
+            <form
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_beat"
+              onsubmit="return handleSubmit(this, 'beat');"
+            >
+              <input type="hidden" name="competitionType" value="beat" />
+
               <div class="field-group">
                 <label for="producer-name">
                   Producer Name<span class="required-star">*</span>
@@ -1225,6 +1246,37 @@
         });
       });
     });
+  </script>
+
+  <!-- Hidden iframes for form POSTs -->
+  <iframe name="hidden_iframe_rap" style="display:none;"></iframe>
+  <iframe name="hidden_iframe_visual" style="display:none;"></iframe>
+  <iframe name="hidden_iframe_beat" style="display:none;"></iframe>
+
+  <script>
+    function handleSubmit(form, type) {
+      const btn = form.querySelector('button[type="submit"]');
+      if (!btn) return true;
+
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      // We’re posting to Apps Script in a hidden iframe;
+      // just give the user a quick confirmation after a short delay.
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert(
+          'Thank you! Your ' +
+            type.toUpperCase() +
+            ' competition entry has been submitted.'
+        );
+        form.reset();
+      }, 2500);
+
+      return true; // allow the form to submit
+    }
   </script>
 </body>
 </html>
