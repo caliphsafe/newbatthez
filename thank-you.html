@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You – New B @ The Z</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Thank you for entering the New B @ The Z creative competitions."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-alt: #0b0b1c;
+      --card: rgba(16, 16, 40, 0.9);
+      --accent: #ff3b7f;
+      --accent-soft: rgba(255, 59, 127, 0.16);
+      --accent-blue: #29b3ff;
+      --accent-purple: #8c5bff;
+      --text: #f5f5ff;
+      --muted: #9a9ab8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.65);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #191936 0, #050510 50%, #020209 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 18px 60px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: conic-gradient(
+        from 180deg,
+        #ff3b7f,
+        #ff9f3b,
+        #29b3ff,
+        #8c5bff,
+        #ff3b7f
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255, 59, 127, 0.6);
+    }
+
+    .logo-badge span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-text-main {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .tagline-pill {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at top left, #1f1f3a, #070713);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tagline-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255, 59, 127, 0.7);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thank-card {
+      max-width: 640px;
+      width: 100%;
+      border-radius: 28px;
+      padding: 32px 24px 28px;
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      backdrop-filter: blur(20px);
+    }
+
+    .thank-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(8, 8, 22, 0.95);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .thank-label-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #52ff9f;
+      box-shadow: 0 0 12px rgba(82, 255, 159, 0.8);
+    }
+
+    .thank-title {
+      font-size: clamp(26px, 4vw, 32px);
+      margin-bottom: 12px;
+    }
+
+    .thank-title span {
+      background: linear-gradient(120deg, #ff3b7f, #ff9f3b, #29b3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .thank-body {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .thank-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 30, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(20, 20, 50, 0.95);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 16px;
+      }
+
+      .thank-card {
+        padding-inline: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-mark">
+        <div class="logo-badge">
+          <span>Z</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-text-main">New B @ The Z</span>
+          <span class="logo-text-sub">Creative Competition Hub</span>
+        </div>
+      </div>
+      <div class="tagline-pill">
+        <span class="tagline-dot"></span>
+        <span>Bars • Beats • Visuals</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="thank-card">
+        <div class="thank-label">
+          <span class="thank-label-dot"></span>
+          <span>Submission Received</span>
+        </div>
+        <h1 class="thank-title">
+          Thank you for <span>entering.</span>
+        </h1>
+        <p class="thank-body">
+          Your submission has been received for the New B @ The Z creative competitions.
+          The organizing team will review all entries and reach out to selected participants
+          with next steps, timing, and details.
+        </p>
+        <p class="thank-note">
+          Keep an eye on your email and phone. In the meantime, feel free to share the show,
+          support other local artists, and get ready for a historic night at The Z.
+        </p>
+
+        <div class="btn-row">
+          <a href="/" class="btn-primary">
+            Back to Competitions
+          </a>
+          <a href="https://zeiterion.org" target="_blank" rel="noopener" class="btn-secondary">
+            Visit The Z Website
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>© New B @ The Z • New Bedford, MA</span>
+      <div class="footer-links">
+        <span>Questions? Contact the organizers.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
