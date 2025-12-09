@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New B @ The Z – Creative Competitions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Enter the New B @ The Z creative competitions: MC/Rap, Visual Flyer Design, and Beat Production."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-alt: #0b0b1c;
+      --card: rgba(16, 16, 40, 0.9);
+      --accent: #ff3b7f;
+      --accent-soft: rgba(255, 59, 127, 0.16);
+      --accent-blue: #29b3ff;
+      --accent-purple: #8c5bff;
+      --text: #f5f5ff;
+      --muted: #9a9ab8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.65);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #191936 0, #050510 50%, #020209 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 18px 60px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: conic-gradient(
+        from 180deg,
+        #ff3b7f,
+        #ff9f3b,
+        #29b3ff,
+        #8c5bff,
+        #ff3b7f
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255, 59, 127, 0.6);
+    }
+
+    .logo-badge span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-text-main {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .tagline-pill {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at top left, #1f1f3a, #070713);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tagline-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255, 59, 127, 0.7);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .tagline-pill {
+        align-self: flex-start;
+      }
+
+      .page {
+        padding-inline: 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 16px;
+      }
+    }
+
+    .hero-main-title {
+      font-size: clamp(32px, 4.4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-main-title span.highlight {
+      background: linear-gradient(120deg, #ff3b7f, #ff9f3b, #29b3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .hero-meta-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(12, 12, 30, 0.85);
+    }
+
+    .hero-body {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 30, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(20, 20, 50, 0.95);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 220px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-orbit {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 32px;
+      padding: 20px 20px 24px;
+      background: radial-gradient(circle at top, #1f1034, #060612);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-orbit::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(
+        circle at 10% 0%,
+        rgba(255, 59, 127, 0.22),
+        transparent 55%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(
+        circle at 100% 100%,
+        rgba(41, 179, 255, 0.18),
+        transparent 55%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-orbit-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-orbit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .pill-small {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      background: rgba(10, 10, 30, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .orbit-led {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #52ff9f;
+      box-shadow: 0 0 12px rgba(82, 255, 159, 0.7);
+    }
+
+    .hero-orbit-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-orbit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .stat-chip {
+      padding: 10px 10px;
+      border-radius: 14px;
+      background: rgba(8, 8, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 10px;
+    }
+
+    .stat-value {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .stat-accent-rap {
+      color: var(--accent);
+    }
+
+    .stat-accent-visual {
+      color: var(--accent-blue);
+    }
+
+    .stat-accent-beat {
+      color: var(--accent-purple);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .hero-chip {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(7, 7, 20, 0.95);
+      color: var(--muted);
+    }
+
+    .hero-orbit-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-orbit-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-orbit-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      box-shadow: 0 0 10px rgba(255, 59, 127, 0.7);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 360px;
+    }
+
+    .competition-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(8, 8, 22, 0.85);
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .tab-btn span.badge {
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+
+    .tab-btn.active {
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+      transform: translateY(-1px);
+      background: radial-gradient(circle at top, #1b1028, #070713);
+    }
+
+    .tab-btn.active[data-type="rap"] {
+      box-shadow: 0 0 18px var(--accent-soft);
+    }
+
+    .tab-btn.active[data-type="visual"] {
+      box-shadow: 0 0 18px rgba(41, 179, 255, 0.2);
+    }
+
+    .tab-btn.active[data-type="beat"] {
+      box-shadow: 0 0 18px rgba(140, 91, 255, 0.25);
+    }
+
+    .competition-panel {
+      display: none;
+    }
+
+    .competition-panel.active {
+      display: grid;
+    }
+
+    .competition-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.8fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .competition-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .card-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-label {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(8, 8, 22, 0.9);
+      color: var(--muted);
+    }
+
+    .pill-label.rap {
+      border-color: rgba(255, 59, 127, 0.6);
+      color: var(--accent);
+    }
+
+    .pill-label.visual {
+      border-color: rgba(41, 179, 255, 0.7);
+      color: var(--accent-blue);
+    }
+
+    .pill-label.beat {
+      border-color: rgba(140, 91, 255, 0.7);
+      color: var(--accent-purple);
+    }
+
+    .prize-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+      gap: 12px;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .prize-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .prize-heading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .prize-list {
+      padding-left: 16px;
+      margin: 0;
+      list-style: none;
+    }
+
+    .prize-list li::before {
+      content: "✦";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    .prize-list li {
+      margin-bottom: 4px;
+    }
+
+    .note-text {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .requirements-list {
+      margin: 10px 0 0;
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .requirements-list li {
+      margin-bottom: 4px;
+    }
+
+    .form-card {
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      background: radial-gradient(circle at top, #141428, #050510);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: var(--shadow-soft);
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .required-star {
+      color: var(--accent);
+      margin-left: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"] {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 10, 26, 0.96);
+      padding: 9px 14px;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    input[type="file"] {
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    input::file-selector-button {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin-right: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    input[type="file"]:hover::file-selector-button {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--text);
+    }
+
+    input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 1px rgba(41, 179, 255, 0.35);
+      background: rgba(14, 14, 34, 0.98);
+    }
+
+    .helper-text {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .form-footer span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-mark">
+        <div class="logo-badge">
+          <span>Z</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-text-main">New B @ The Z</span>
+          <span class="logo-text-sub">Creative Competition Hub</span>
+        </div>
+      </div>
+      <div class="tagline-pill">
+        <span class="tagline-dot"></span>
+        <span>Bars • Beats • Visuals</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1 class="hero-main-title">
+          Three Competitions. <span class="highlight">One Historic Night.</span>
+        </h1>
+        <div class="hero-meta">
+          <span class="hero-meta-pill">May 23 • New Bedford, MA</span>
+          <span class="hero-meta-pill">Featuring Caliph, Resto &amp; SiahLaw</span>
+        </div>
+        <p class="hero-body">
+          In honor of the first true hip hop show on the Zeiterion stage, we’re opening
+          the doors to the next wave of creatives around the city – MCs, designers, and producers.
+          Enter below for a chance to be part of the New B @ The Z story.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn-primary" onclick="scrollToSection('competitions')">
+            Enter a Competition
+            <span>↓</span>
+          </button>
+          <button class="btn-secondary" onclick="scrollToSection('competitions')">
+            View Prizes &amp; Details
+          </button>
+        </div>
+        <div class="hero-note">
+          Each competition has its own entry form — you may enter more than one if it fits your craft.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-orbit">
+          <div class="hero-orbit-inner">
+            <div class="hero-orbit-header">
+              <span class="pill-small">
+                <span class="orbit-led"></span>
+                Live From The Z
+              </span>
+              <span style="font-size:11px; color:var(--muted);">
+                New B Creative Circuit
+              </span>
+            </div>
+
+            <div class="hero-orbit-title">
+              MC • Visual • Beat Producer
+            </div>
+
+            <div class="hero-orbit-grid">
+              <div class="stat-chip">
+                <span class="stat-label">MC / Rap</span>
+                <span class="stat-value stat-accent-rap">16 Bars • Speakeasy Set</span>
+              </div>
+              <div class="stat-chip">
+                <span class="stat-label">Visual</span>
+                <span class="stat-value stat-accent-visual">Official Show Flyer</span>
+              </div>
+              <div class="stat-chip">
+                <span class="stat-label">Beat</span>
+                <span class="stat-value stat-accent-beat">Official Promo Sound</span>
+              </div>
+            </div>
+
+            <div class="hero-chip-row">
+              <span class="hero-chip">4 Hour Recording Session</span>
+              <span class="hero-chip">$100 Art Supplies Gift Card</span>
+              <span class="hero-chip">Adobe &amp; Splice Subscriptions</span>
+            </div>
+
+            <div class="hero-orbit-footer">
+              <div class="hero-orbit-indicator">
+                <div class="hero-orbit-indicator-dot"></div>
+                <span>Submissions Open</span>
+              </div>
+              <span>Powered by New Bedford Hip Hop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="competitions">
+      <div class="section-heading">
+        <h2>Competition Entries</h2>
+        <p class="section-sub">
+          Choose your lane — or enter more than one. Read the details, prep your best work,
+          and upload using the forms below.
+        </p>
+      </div>
+
+      <div class="competition-tabs">
+        <button class="tab-btn active" data-target="rap" data-type="rap">
+          MC / Rap Competition
+          <span class="badge">16 Bar Verse</span>
+        </button>
+        <button class="tab-btn" data-target="visual" data-type="visual">
+          Visual Flyer Competition
+          <span class="badge">Show Artwork</span>
+        </button>
+        <button class="tab-btn" data-target="beat" data-type="beat">
+          Beat Production Competition
+          <span class="badge">Promo Beat</span>
+        </button>
+      </div>
+
+      <!-- RAP / MC PANEL -->
+      <section class="competition-panel active" id="panel-rap">
+        <div class="competition-layout">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">
+                  MC / Rap Competition
+                  <span class="pill-label rap">16 Bar Verse</span>
+                </div>
+                <div class="card-tagline">
+                  For lyricists ready to step on stage and into the booth.
+                </div>
+              </div>
+            </div>
+
+            <div class="prize-grid">
+              <div>
+                <div class="prize-heading">Grand Prize</div>
+                <ul class="prize-list">
+                  <li>Performance slot at the New B @ The Z pre-show speakeasy</li>
+                  <li>4 hour recording session</li>
+                  <li>2 professional mixes + 1 master</li>
+                </ul>
+              </div>
+              <div>
+                <div class="prize-heading">What to Submit</div>
+                <ul class="requirements-list">
+                  <li>A recorded <strong>16 bar verse</strong> (no full songs)</li>
+                  <li>Upload as an <strong>MP3</strong> file</li>
+                  <li>Clean or radio-edit strongly preferred</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note-text">
+              Your verse should showcase your voice, flow, and storytelling — imagine you’re opening the night.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <!-- TODO: Replace action with your backend endpoint -->
+            <form method="post" action="/submit-rap" enctype="multipart/form-data">
+              <div class="field-group">
+                <label for="mc-stage-name">
+                  Stage Name<span class="required-star">*</span>
+                </label>
+                <input type="text" id="mc-stage-name" name="stageName" required />
+              </div>
+
+              <div class="field-group">
+                <label for="mc-real-name">
+                  Real Name<span class="required-star">*</span>
+                </label>
+                <input type="text" id="mc-real-name" name="realName" required />
+              </div>
+
+              <div class="field-group">
+                <label for="mc-phone">
+                  Phone Number<span class="required-star">*</span>
+                </label>
+                <input type="tel" id="mc-phone" name="phone" required />
+              </div>
+
+              <div class="field-group">
+                <label for="mc-email">
+                  Email<span class="required-star">*</span>
+                </label>
+                <input type="email" id="mc-email" name="email" required />
+              </div>
+
+              <div class="field-group">
+                <label for="mc-audio">
+                  Upload 16 Bar Verse (MP3)<span class="required-star">*</span>
+                </label>
+                <input
+                  type="file"
+                  id="mc-audio"
+                  name="audioFile"
+                  accept=".mp3,audio/mpeg"
+                  required
+                />
+                <span class="helper-text">Max size and final file requirements may be followed up by email.</span>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn-primary">
+                  Submit MC Entry
+                </button>
+                <span>By submitting, you agree to be contacted about show and competition details.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISUAL PANEL -->
+      <section class="competition-panel" id="panel-visual">
+        <div class="competition-layout">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">
+                  Visual Flyer Competition
+                  <span class="pill-label visual">Show Artwork</span>
+                </div>
+                <div class="card-tagline">
+                  For designers, illustrators, and visual storytellers.
+                </div>
+              </div>
+            </div>
+
+            <div class="prize-grid">
+              <div>
+                <div class="prize-heading">Grand Prize</div>
+                <ul class="prize-list">
+                  <li>Your flyer becomes the <strong>official show flyer</strong> for New B @ The Z</li>
+                  <li>$100 gift card for art supplies</li>
+                  <li>1 year Adobe subscription (Photoshop or Illustrator)</li>
+                </ul>
+              </div>
+              <div>
+                <div class="prize-heading">What to Submit</div>
+                <ul class="requirements-list">
+                  <li>Flyer design featuring <strong>Caliph, Resto &amp; SiahLaw</strong> as co-headliners</li>
+                  <li>Include the date: <strong>May 23</strong> and venue: <strong>The Zeiterion</strong> (New Bedford, MA)</li>
+                  <li>Upload as a <strong>JPEG</strong> file</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note-text">
+              You can design in any style — just make sure it feels like New Bedford hip hop on a theater stage.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <!-- TODO: Replace action with your backend endpoint -->
+            <form method="post" action="/submit-visual" enctype="multipart/form-data">
+              <div class="field-group">
+                <label for="visual-name">
+                  Name<span class="required-star">*</span>
+                </label>
+                <input type="text" id="visual-name" name="name" required />
+              </div>
+
+              <div class="field-group">
+                <label for="visual-phone">
+                  Phone Number<span class="required-star">*</span>
+                </label>
+                <input type="tel" id="visual-phone" name="phone" required />
+              </div>
+
+              <div class="field-group">
+                <label for="visual-email">
+                  Email<span class="required-star">*</span>
+                </label>
+                <input type="email" id="visual-email" name="email" required />
+              </div>
+
+              <div class="field-group">
+                <label for="visual-file">
+                  Upload Flyer Design (JPEG)<span class="required-star">*</span>
+                </label>
+                <input
+                  type="file"
+                  id="visual-file"
+                  name="flyerFile"
+                  accept=".jpg,.jpeg,image/jpeg"
+                  required
+                />
+                <span class="helper-text">High-resolution JPEG is recommended for judging and possible print use.</span>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn-primary">
+                  Submit Visual Entry
+                </button>
+                <span>Final print-ready files may be requested from the winner.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEAT PANEL -->
+      <section class="competition-panel" id="panel-beat">
+        <div class="competition-layout">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">
+                  Beat Production Competition
+                  <span class="pill-label beat">Promo Beat</span>
+                </div>
+                <div class="card-tagline">
+                  For producers who want their sound attached to the show.
+                </div>
+              </div>
+            </div>
+
+            <div class="prize-grid">
+              <div>
+                <div class="prize-heading">Grand Prize</div>
+                <ul class="prize-list">
+                  <li>Your beat featured in official promo media for the show</li>
+                  <li>Midi controller</li>
+                  <li>Headphones</li>
+                  <li>1 year subscription to Splice</li>
+                </ul>
+              </div>
+              <div>
+                <div class="prize-heading">What to Submit</div>
+                <ul class="requirements-list">
+                  <li>1 original instrumental beat</li>
+                  <li>Upload as an <strong>MP3</strong></li>
+                  <li>Make sure you own all the sounds / samples you use</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note-text">
+              Think cinematic, big, and moving — something that makes people feel like the show is a moment.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <!-- TODO: Replace action with your backend endpoint -->
+            <form method="post" action="/submit-beat" enctype="multipart/form-data">
+              <div class="field-group">
+                <label for="producer-name">
+                  Producer Name<span class="required-star">*</span>
+                </label>
+                <input type="text" id="producer-name" name="producerName" required />
+              </div>
+
+              <div class="field-group">
+                <label for="producer-real-name">
+                  Real Name<span class="required-star">*</span>
+                </label>
+                <input type="text" id="producer-real-name" name="realName" required />
+              </div>
+
+              <div class="field-group">
+                <label for="producer-phone">
+                  Phone Number<span class="required-star">*</span>
+                </label>
+                <input type="tel" id="producer-phone" name="phone" required />
+              </div>
+
+              <div class="field-group">
+                <label for="producer-email">
+                  Email<span class="required-star">*</span>
+                </label>
+                <input type="email" id="producer-email" name="email" required />
+              </div>
+
+              <div class="field-group">
+                <label for="producer-beat">
+                  Upload Beat (MP3)<span class="required-star">*</span>
+                </label>
+                <input
+                  type="file"
+                  id="producer-beat"
+                  name="beatFile"
+                  accept=".mp3,audio/mpeg"
+                  required
+                />
+                <span class="helper-text">Instrumental only. No tagged beats, please.</span>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn-primary">
+                  Submit Beat Entry
+                </button>
+                <span>Selected producers will be contacted with next steps and credit details.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© New B @ The Z • New Bedford, MA</span>
+      <div class="footer-links">
+        <span>Questions? Contact the organizers.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // Simple tabs logic
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = {
+      rap: document.getElementById("panel-rap"),
+      visual: document.getElementById("panel-visual"),
+      beat: document.getElementById("panel-beat"),
+    };
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-target");
+
+        // Activate button
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Show panel
+        Object.keys(panels).forEach((key) => {
+          panels[key].classList.toggle("active", key === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
