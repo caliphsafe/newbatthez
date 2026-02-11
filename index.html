@@ -1220,67 +1220,100 @@
   <iframe name="hidden_iframe_visual" style="display:none;"></iframe>
   <iframe name="hidden_iframe_beat" style="display:none;"></iframe>
 
-  <script>
-    // Scroll helper
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+<script>
+  // Scroll helper
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  }
 
-    // Simple tabs logic
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const panels = {
-      rap: document.getElementById("panel-rap"),
-      visual: document.getElementById("panel-visual"),
-      beat: document.getElementById("panel-beat"),
-    };
+  // Simple tabs logic
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const panels = {
+    rap: document.getElementById("panel-rap"),
+    visual: document.getElementById("panel-visual"),
+    beat: document.getElementById("panel-beat"),
+  };
 
-    tabButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-target");
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-target");
 
-        // Activate button
-        tabButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+      // Activate button
+      tabButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-        // Show panel
-        Object.keys(panels).forEach((key) => {
-          panels[key].classList.toggle("active", key === target);
-        });
+      // Show panel
+      Object.keys(panels).forEach((key) => {
+        panels[key].classList.toggle("active", key === target);
       });
     });
+  });
 
-    function handleSubmit(event, form, type) {
-      event.preventDefault();
+  function handleSubmit(event, form, type) {
+    event.preventDefault();
 
-      const btn = form.querySelector('button[type="submit"]');
-      if (!btn) return false;
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return false;
 
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = "Submitting...";
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
 
-      // IMPORTANT: do not base64-encode; just submit the form normally.
-      // This keeps the file in multipart/form-data so Apps Script receives it.
+    // Determine which file field is used for this competition
+    let fileFieldName;
+    if (type === "rap") fileFieldName = "audioFile";
+    else if (type === "visual") fileFieldName = "flyerFile";
+    else if (type === "beat") fileFieldName = "beatFile";
 
-      setTimeout(() => {
-        // Submit normally (to hidden iframe)
-      const iframe = document.querySelector(`iframe[name="hidden_iframe_${type}"]`);
+    // Get file from the correct input
+    const fileInput = form.querySelector(`input[name="${fileFieldName}"]`);
+    const file = fileInput && fileInput.files ? fileInput.files[0] : null;
 
-if (iframe) {
-  iframe.onload = () => {
-    window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
-  };
-}
-
-form.submit();
-
-      }, 50);
-
+    if (!file) {
+      alert("Please choose a file to upload.");
+      btn.disabled = false;
+      btn.textContent = originalText;
       return false;
     }
-  </script>
+
+    // Redirect only after the hidden iframe receives a response
+    const iframe = document.querySelector(`iframe[name="hidden_iframe_${type}"]`);
+    if (iframe) {
+      iframe.onload = () => {
+        window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
+      };
+    }
+
+    // Base64-encode the file into hidden inputs (so Apps Script can decode it)
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = reader.result || "";
+      const base64 = String(result).split(",")[1] || "";
+
+      form.querySelector('input[name="fileBase64"]').value = base64;
+      form.querySelector('input[name="fileName"]').value = file.name;
+      form.querySelector('input[name="fileType"]').value =
+        file.type || "application/octet-stream";
+
+      // Submit normally (multipart/form-data to the web app URL via hidden iframe)
+      form.submit();
+    };
+
+    reader.onerror = () => {
+      alert("There was a problem reading your file. Please try again.");
+      btn.disabled = false;
+      btn.textContent = originalText;
+    };
+
+    reader.readAsDataURL(file);
+
+    return false;
+  }
+</script>
+
 </body>
 </html>
