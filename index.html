@@ -954,9 +954,6 @@
               onsubmit="return handleSubmit(event, this, 'rap');"
             >
               <input type="hidden" name="competitionType" value="rap" />
-              <input type="hidden" name="fileBase64" />
-              <input type="hidden" name="fileName" />
-              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="mc-stage-name">
@@ -1053,15 +1050,12 @@
           <div class="form-card">
             <form
               method="post"
-              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              action="https://script.google.com/macros/s/AKfycbwl3uRTVB8HFRjAqJLvIiPDi1OouVYZefofuR89-K4xKHW9V44avvl3JnPWRFqQO9s8Pw/exec"
               enctype="multipart/form-data"
               target="hidden_iframe_visual"
               onsubmit="return handleSubmit(event, this, 'visual');"
             >
               <input type="hidden" name="competitionType" value="visual" />
-              <input type="hidden" name="fileBase64" />
-              <input type="hidden" name="fileName" />
-              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="visual-name">
@@ -1152,15 +1146,12 @@
           <div class="form-card">
             <form
               method="post"
-              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              action="https://script.google.com/macros/s/AKfycbwl3uRTVB8HFRjAqJLvIiPDi1OouVYZefofuR89-K4xKHW9V44avvl3JnPWRFqQO9s8Pw/exec"
               enctype="multipart/form-data"
               target="hidden_iframe_beat"
               onsubmit="return handleSubmit(event, this, 'beat');"
             >
               <input type="hidden" name="competitionType" value="beat" />
-              <input type="hidden" name="fileBase64" />
-              <input type="hidden" name="fileName" />
-              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="producer-name">
@@ -1271,47 +1262,18 @@
       btn.disabled = true;
       btn.textContent = "Submitting...";
 
-      let fileFieldName;
-      if (type === "rap") fileFieldName = "audioFile";
-      else if (type === "visual") fileFieldName = "flyerFile";
-      else if (type === "beat") fileFieldName = "beatFile";
+      // IMPORTANT: do not base64-encode; just submit the form normally.
+      // This keeps the file in multipart/form-data so Apps Script receives it.
 
-      const fileInput = form.querySelector(`input[name="${fileFieldName}"]`);
-      const file = fileInput && fileInput.files ? fileInput.files[0] : null;
-
-      if (!file) {
-        alert("Please choose a file to upload.");
-        btn.disabled = false;
-        btn.textContent = originalText;
-        return false;
-      }
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result || "";
-        const base64 = String(result).split(",")[1] || "";
-
-        form.querySelector('input[name="fileBase64"]').value = base64;
-        form.querySelector('input[name="fileName"]').value = file.name;
-        form.querySelector('input[name="fileType"]').value =
-          file.type || "application/octet-stream";
-
-        // Submit normally (NOT fetch) to Apps Script — avoids CORS
+      setTimeout(() => {
+        // Submit normally (to hidden iframe)
         form.submit();
 
-        // Redirect after a short delay (adjust path if needed)
+        // Redirect after a short delay
         setTimeout(() => {
           window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
         }, 900);
-      };
-
-      reader.onerror = () => {
-        alert("There was a problem reading your file. Please try again.");
-        btn.disabled = false;
-        btn.textContent = originalText;
-      };
-
-      reader.readAsDataURL(file);
+      }, 50);
 
       return false;
     }
