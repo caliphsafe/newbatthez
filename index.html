@@ -35,9 +35,7 @@
       --transition-fast: 0.18s ease-out;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -48,10 +46,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
       min-height: 100vh;
@@ -70,11 +65,7 @@
       margin-bottom: 32px;
     }
 
-    .logo-mark {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .logo-mark { display: flex; align-items: center; gap: 12px; }
 
     .logo-badge {
       width: 40px;
@@ -94,17 +85,9 @@
       box-shadow: 0 0 25px rgba(255, 59, 127, 0.6);
     }
 
-    .logo-badge span {
-      font-size: 18px;
-      font-weight: 700;
-      color: #ffffff;
-    }
+    .logo-badge span { font-size: 18px; font-weight: 700; color: #ffffff; }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .logo-text { display: flex; flex-direction: column; gap: 2px; }
 
     .logo-text-main {
       font-size: 18px;
@@ -151,28 +134,14 @@
     }
 
     @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .tagline-pill {
-        align-self: flex-start;
-      }
-
-      .page {
-        padding-inline: 18px;
-      }
+      .hero { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .tagline-pill { align-self: flex-start; }
+      .page { padding-inline: 18px; }
     }
 
     @media (max-width: 600px) {
-      .page {
-        padding-inline: 16px;
-      }
+      .page { padding-inline: 16px; }
     }
 
     .hero-main-title {
@@ -272,187 +241,9 @@
       transform: translateY(-1px);
     }
 
-    .hero-note {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .hero-note { font-size: 12px; color: var(--muted); }
 
-    .hero-visual {
-      position: relative;
-      min-height: 220px;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-    }
-
-    .hero-orbit {
-      position: relative;
-      width: 100%;
-      max-width: 380px;
-      border-radius: 32px;
-      padding: 20px 20px 24px;
-      background: radial-gradient(circle at top, #1f1034, #060612);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-orbit::before {
-      content: "";
-      position: absolute;
-      inset: -60%;
-      background: radial-gradient(
-        circle at 10% 0%,
-        rgba(255, 59, 127, 0.22),
-        transparent 55%
-      );
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-orbit::after {
-      content: "";
-      position: absolute;
-      inset: -60%;
-      background: radial-gradient(
-        circle at 100% 100%,
-        rgba(41, 179, 255, 0.18),
-        transparent 55%
-      );
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-orbit-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-orbit-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .pill-small {
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      background: rgba(10, 10, 30, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .orbit-led {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #52ff9f;
-      box-shadow: 0 0 12px rgba(82, 255, 159, 0.7);
-    }
-
-    .hero-orbit-title {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .hero-orbit-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .stat-chip {
-      padding: 10px 10px;
-      border-radius: 14px;
-      background: rgba(8, 8, 22, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 11px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 10px;
-    }
-
-    .stat-value {
-      font-size: 13px;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-
-    .stat-accent-rap {
-      color: var(--accent);
-    }
-
-    .stat-accent-visual {
-      color: var(--accent-blue);
-    }
-
-    .stat-accent-beat {
-      color: var(--accent-purple);
-    }
-
-    .hero-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .hero-chip {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 6px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(7, 7, 20, 0.95);
-      color: var(--muted);
-    }
-
-    .hero-orbit-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-orbit-indicator {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .hero-orbit-indicator-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
-      box-shadow: 0 0 10px rgba(255, 59, 127, 0.7);
-    }
-
-    main {
-      flex: 1;
-    }
+    main { flex: 1; }
 
     .section-heading {
       margin-bottom: 18px;
@@ -471,18 +262,9 @@
       color: var(--muted);
     }
 
-    .section-sub {
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 360px;
-    }
+    .section-sub { font-size: 13px; color: var(--muted); max-width: 360px; }
 
-    .competition-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
+    .competition-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 
     .tab-btn {
       padding: 8px 14px;
@@ -516,25 +298,8 @@
       background: radial-gradient(circle at top, #1b1028, #070713);
     }
 
-    .tab-btn.active[data-type="rap"] {
-      box-shadow: 0 0 18px var(--accent-soft);
-    }
-
-    .tab-btn.active[data-type="visual"] {
-      box-shadow: 0 0 18px rgba(41, 179, 255, 0.2);
-    }
-
-    .tab-btn.active[data-type="beat"] {
-      box-shadow: 0 0 18px rgba(140, 91, 255, 0.25);
-    }
-
-    .competition-panel {
-      display: none;
-    }
-
-    .competition-panel.active {
-      display: grid;
-    }
+    .competition-panel { display: none; }
+    .competition-panel.active { display: grid; }
 
     .competition-layout {
       display: grid;
@@ -543,11 +308,7 @@
       align-items: flex-start;
     }
 
-    @media (max-width: 880px) {
-      .competition-layout {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 880px) { .competition-layout { grid-template-columns: 1fr; } }
 
     .card {
       border-radius: var(--radius-lg);
@@ -575,11 +336,7 @@
       align-items: center;
     }
 
-    .card-tagline {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
+    .card-tagline { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
 
     .pill-label {
       padding: 3px 8px;
@@ -592,20 +349,9 @@
       color: var(--muted);
     }
 
-    .pill-label.rap {
-      border-color: rgba(255, 59, 127, 0.6);
-      color: var(--accent);
-    }
-
-    .pill-label.visual {
-      border-color: rgba(41, 179, 255, 0.7);
-      color: var(--accent-blue);
-    }
-
-    .pill-label.beat {
-      border-color: rgba(140, 91, 255, 0.7);
-      color: var(--accent-purple);
-    }
+    .pill-label.rap { border-color: rgba(255, 59, 127, 0.6); color: var(--accent); }
+    .pill-label.visual { border-color: rgba(41, 179, 255, 0.7); color: var(--accent-blue); }
+    .pill-label.beat { border-color: rgba(140, 91, 255, 0.7); color: var(--accent-purple); }
 
     .prize-grid {
       display: grid;
@@ -615,11 +361,7 @@
       margin-bottom: 6px;
     }
 
-    @media (max-width: 600px) {
-      .prize-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 600px) { .prize-grid { grid-template-columns: 1fr; } }
 
     .prize-heading {
       font-size: 12px;
@@ -629,38 +371,14 @@
       margin-bottom: 4px;
     }
 
-    .prize-list {
-      padding-left: 16px;
-      margin: 0;
-      list-style: none;
-    }
+    .prize-list { padding-left: 16px; margin: 0; list-style: none; }
+    .prize-list li::before { content: "✦"; margin-right: 6px; color: var(--accent); }
+    .prize-list li { margin-bottom: 4px; }
 
-    .prize-list li::before {
-      content: "✦";
-      margin-right: 6px;
-      color: var(--accent);
-    }
+    .note-text { font-size: 12px; color: var(--muted); margin-top: 8px; }
 
-    .prize-list li {
-      margin-bottom: 4px;
-    }
-
-    .note-text {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    .requirements-list {
-      margin: 10px 0 0;
-      padding-left: 16px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .requirements-list li {
-      margin-bottom: 4px;
-    }
+    .requirements-list { margin: 10px 0 0; padding-left: 16px; font-size: 13px; color: var(--muted); }
+    .requirements-list li { margin-bottom: 4px; }
 
     .form-card {
       border-radius: var(--radius-lg);
@@ -670,16 +388,9 @@
       box-shadow: var(--shadow-soft);
     }
 
-    form {
-      display: grid;
-      gap: 10px;
-    }
+    form { display: grid; gap: 10px; }
 
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+    .field-group { display: flex; flex-direction: column; gap: 4px; }
 
     label {
       font-size: 12px;
@@ -688,10 +399,7 @@
       letter-spacing: 0.14em;
     }
 
-    .required-star {
-      color: var(--accent);
-      margin-left: 3px;
-    }
+    .required-star { color: var(--accent); margin-left: 3px; }
 
     input[type="text"],
     input[type="email"],
@@ -708,12 +416,7 @@
         box-shadow var(--transition-fast), background var(--transition-fast);
     }
 
-    input[type="file"] {
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 13px;
-      cursor: pointer;
-    }
+    input[type="file"] { border-radius: 999px; padding: 8px 10px; font-size: 13px; cursor: pointer; }
 
     input::file-selector-button {
       border: none;
@@ -729,10 +432,7 @@
       transition: background var(--transition-fast), color var(--transition-fast);
     }
 
-    input[type="file"]:hover::file-selector-button {
-      background: rgba(255, 255, 255, 0.18);
-      color: var(--text);
-    }
+    input[type="file"]:hover::file-selector-button { background: rgba(255, 255, 255, 0.18); color: var(--text); }
 
     input:focus {
       border-color: var(--accent-blue);
@@ -740,10 +440,7 @@
       background: rgba(14, 14, 34, 0.98);
     }
 
-    .helper-text {
-      font-size: 11px;
-      color: var(--muted);
-    }
+    .helper-text { font-size: 11px; color: var(--muted); }
 
     .form-footer {
       display: flex;
@@ -753,10 +450,7 @@
       margin-top: 8px;
     }
 
-    .form-footer span {
-      font-size: 11px;
-      color: var(--muted);
-    }
+    .form-footer span { font-size: 11px; color: var(--muted); }
 
     footer {
       margin-top: 40px;
@@ -770,19 +464,9 @@
       gap: 10px;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--text); }
   </style>
 </head>
 
@@ -790,9 +474,7 @@
   <div class="page">
     <header>
       <div class="logo-mark">
-        <div class="logo-badge">
-          <span>Z</span>
-        </div>
+        <div class="logo-badge"><span>Z</span></div>
         <div class="logo-text">
           <span class="logo-text-main">New B @ The Z</span>
           <span class="logo-text-sub">Creative Competition Hub</span>
@@ -820,8 +502,7 @@
         </p>
         <div class="hero-cta-row">
           <button class="btn-primary" onclick="scrollToSection('competitions')">
-            Enter a Competition
-            <span>↓</span>
+            Enter a Competition <span>↓</span>
           </button>
           <button class="btn-secondary" onclick="scrollToSection('competitions')">
             View Prizes &amp; Details
@@ -829,55 +510,6 @@
         </div>
         <div class="hero-note">
           Each competition has its own entry form — you may enter more than one if it fits your craft.
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-orbit">
-          <div class="hero-orbit-inner">
-            <div class="hero-orbit-header">
-              <span class="pill-small">
-                <span class="orbit-led"></span>
-                Live From The Z
-              </span>
-              <span style="font-size:11px; color:var(--muted);">
-                New B Creative Circuit
-              </span>
-            </div>
-
-            <div class="hero-orbit-title">
-              MC • Visual • Beat Producer
-            </div>
-
-            <div class="hero-orbit-grid">
-              <div class="stat-chip">
-                <span class="stat-label">MC / Rap</span>
-                <span class="stat-value stat-accent-rap">16 Bars • Speakeasy Set</span>
-              </div>
-              <div class="stat-chip">
-                <span class="stat-label">Visual</span>
-                <span class="stat-value stat-accent-visual">Official Show Flyer</span>
-              </div>
-              <div class="stat-chip">
-                <span class="stat-label">Beat</span>
-                <span class="stat-value stat-accent-beat">Official Promo Sound</span>
-              </div>
-            </div>
-
-            <div class="hero-chip-row">
-              <span class="hero-chip">4 Hour Recording Session</span>
-              <span class="hero-chip">$100 Art Supplies Gift Card</span>
-              <span class="hero-chip">Adobe &amp; Splice Subscriptions</span>
-            </div>
-
-            <div class="hero-orbit-footer">
-              <div class="hero-orbit-indicator">
-                <div class="hero-orbit-indicator-dot"></div>
-                <span>Submissions Open</span>
-              </div>
-              <span>Powered by New Bedford Hip Hop</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -893,16 +525,13 @@
 
       <div class="competition-tabs">
         <button class="tab-btn active" data-target="rap" data-type="rap">
-          MC / Rap Competition
-          <span class="badge">16 Bar Verse</span>
+          MC / Rap Competition <span class="badge">16 Bar Verse</span>
         </button>
         <button class="tab-btn" data-target="visual" data-type="visual">
-          Visual Flyer Competition
-          <span class="badge">Show Artwork</span>
+          Visual Flyer Competition <span class="badge">Show Artwork</span>
         </button>
         <button class="tab-btn" data-target="beat" data-type="beat">
-          Beat Production Competition
-          <span class="badge">Promo Beat</span>
+          Beat Production Competition <span class="badge">Promo Beat</span>
         </button>
       </div>
 
@@ -913,15 +542,11 @@
             <div class="card-header">
               <div>
                 <div class="card-title">
-                  MC / Rap Competition
-                  <span class="pill-label rap">16 Bar Verse</span>
+                  MC / Rap Competition <span class="pill-label rap">16 Bar Verse</span>
                 </div>
-                <div class="card-tagline">
-                  For lyricists ready to step on stage and into the booth.
-                </div>
+                <div class="card-tagline">For lyricists ready to step on stage and into the booth.</div>
               </div>
             </div>
-
             <div class="prize-grid">
               <div>
                 <div class="prize-heading">Grand Prize</div>
@@ -954,53 +579,39 @@
               onsubmit="return handleSubmit(event, this, 'rap');"
             >
               <input type="hidden" name="competitionType" value="rap" />
+              <!-- ✅ FIX: required hidden fields -->
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
-                <label for="mc-stage-name">
-                  Stage Name<span class="required-star">*</span>
-                </label>
+                <label for="mc-stage-name">Stage Name<span class="required-star">*</span></label>
                 <input type="text" id="mc-stage-name" name="stageName" required />
               </div>
 
               <div class="field-group">
-                <label for="mc-real-name">
-                  Real Name<span class="required-star">*</span>
-                </label>
+                <label for="mc-real-name">Real Name<span class="required-star">*</span></label>
                 <input type="text" id="mc-real-name" name="realName" required />
               </div>
 
               <div class="field-group">
-                <label for="mc-phone">
-                  Phone Number<span class="required-star">*</span>
-                </label>
+                <label for="mc-phone">Phone Number<span class="required-star">*</span></label>
                 <input type="tel" id="mc-phone" name="phone" required />
               </div>
 
               <div class="field-group">
-                <label for="mc-email">
-                  Email<span class="required-star">*</span>
-                </label>
+                <label for="mc-email">Email<span class="required-star">*</span></label>
                 <input type="email" id="mc-email" name="email" required />
               </div>
 
               <div class="field-group">
-                <label for="mc-audio">
-                  Upload 16 Bar Verse (MP3)<span class="required-star">*</span>
-                </label>
-                <input
-                  type="file"
-                  id="mc-audio"
-                  name="audioFile"
-                  accept=".mp3,audio/mpeg"
-                  required
-                />
+                <label for="mc-audio">Upload 16 Bar Verse (MP3)<span class="required-star">*</span></label>
+                <input type="file" id="mc-audio" name="audioFile" accept=".mp3,audio/mpeg" required />
                 <span class="helper-text">Max size and final file requirements may be followed up by email.</span>
               </div>
 
               <div class="form-footer">
-                <button type="submit" class="btn-primary">
-                  Submit MC Entry
-                </button>
+                <button type="submit" class="btn-primary">Submit MC Entry</button>
                 <span>By submitting, you agree to be contacted about show and competition details.</span>
               </div>
             </form>
@@ -1015,15 +626,11 @@
             <div class="card-header">
               <div>
                 <div class="card-title">
-                  Visual Flyer Competition
-                  <span class="pill-label visual">Show Artwork</span>
+                  Visual Flyer Competition <span class="pill-label visual">Show Artwork</span>
                 </div>
-                <div class="card-tagline">
-                  For designers, illustrators, and visual storytellers.
-                </div>
+                <div class="card-tagline">For designers, illustrators, and visual storytellers.</div>
               </div>
             </div>
-
             <div class="prize-grid">
               <div>
                 <div class="prize-heading">Grand Prize</div>
@@ -1042,9 +649,7 @@
                 </ul>
               </div>
             </div>
-            <p class="note-text">
-              You can design in any style — just make sure it feels like New Bedford hip hop on a theater stage.
-            </p>
+            <p class="note-text">You can design in any style — just make sure it feels like New Bedford hip hop on a theater stage.</p>
           </div>
 
           <div class="form-card">
@@ -1056,46 +661,34 @@
               onsubmit="return handleSubmit(event, this, 'visual');"
             >
               <input type="hidden" name="competitionType" value="visual" />
+              <!-- ✅ FIX: required hidden fields -->
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
-                <label for="visual-name">
-                  Name<span class="required-star">*</span>
-                </label>
+                <label for="visual-name">Name<span class="required-star">*</span></label>
                 <input type="text" id="visual-name" name="name" required />
               </div>
 
               <div class="field-group">
-                <label for="visual-phone">
-                  Phone Number<span class="required-star">*</span>
-                </label>
+                <label for="visual-phone">Phone Number<span class="required-star">*</span></label>
                 <input type="tel" id="visual-phone" name="phone" required />
               </div>
 
               <div class="field-group">
-                <label for="visual-email">
-                  Email<span class="required-star">*</span>
-                </label>
+                <label for="visual-email">Email<span class="required-star">*</span></label>
                 <input type="email" id="visual-email" name="email" required />
               </div>
 
               <div class="field-group">
-                <label for="visual-file">
-                  Upload Flyer Design (JPEG)<span class="required-star">*</span>
-                </label>
-                <input
-                  type="file"
-                  id="visual-file"
-                  name="flyerFile"
-                  accept=".jpg,.jpeg,image/jpeg"
-                  required
-                />
+                <label for="visual-file">Upload Flyer Design (JPEG)<span class="required-star">*</span></label>
+                <input type="file" id="visual-file" name="flyerFile" accept=".jpg,.jpeg,image/jpeg" required />
                 <span class="helper-text">High-resolution JPEG is recommended for judging and possible print use.</span>
               </div>
 
               <div class="form-footer">
-                <button type="submit" class="btn-primary">
-                  Submit Visual Entry
-                </button>
+                <button type="submit" class="btn-primary">Submit Visual Entry</button>
                 <span>Final print-ready files may be requested from the winner.</span>
               </div>
             </form>
@@ -1110,15 +703,11 @@
             <div class="card-header">
               <div>
                 <div class="card-title">
-                  Beat Production Competition
-                  <span class="pill-label beat">Promo Beat</span>
+                  Beat Production Competition <span class="pill-label beat">Promo Beat</span>
                 </div>
-                <div class="card-tagline">
-                  For producers who want their sound attached to the show.
-                </div>
+                <div class="card-tagline">For producers who want their sound attached to the show.</div>
               </div>
             </div>
-
             <div class="prize-grid">
               <div>
                 <div class="prize-heading">Grand Prize</div>
@@ -1138,9 +727,7 @@
                 </ul>
               </div>
             </div>
-            <p class="note-text">
-              Think cinematic, big, and moving — something that makes people feel like the show is a moment.
-            </p>
+            <p class="note-text">Think cinematic, big, and moving — something that makes people feel like the show is a moment.</p>
           </div>
 
           <div class="form-card">
@@ -1152,53 +739,39 @@
               onsubmit="return handleSubmit(event, this, 'beat');"
             >
               <input type="hidden" name="competitionType" value="beat" />
+              <!-- ✅ FIX: required hidden fields -->
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
-                <label for="producer-name">
-                  Producer Name<span class="required-star">*</span>
-                </label>
+                <label for="producer-name">Producer Name<span class="required-star">*</span></label>
                 <input type="text" id="producer-name" name="producerName" required />
               </div>
 
               <div class="field-group">
-                <label for="producer-real-name">
-                  Real Name<span class="required-star">*</span>
-                </label>
+                <label for="producer-real-name">Real Name<span class="required-star">*</span></label>
                 <input type="text" id="producer-real-name" name="realName" required />
               </div>
 
               <div class="field-group">
-                <label for="producer-phone">
-                  Phone Number<span class="required-star">*</span>
-                </label>
+                <label for="producer-phone">Phone Number<span class="required-star">*</span></label>
                 <input type="tel" id="producer-phone" name="phone" required />
               </div>
 
               <div class="field-group">
-                <label for="producer-email">
-                  Email<span class="required-star">*</span>
-                </label>
+                <label for="producer-email">Email<span class="required-star">*</span></label>
                 <input type="email" id="producer-email" name="email" required />
               </div>
 
               <div class="field-group">
-                <label for="producer-beat">
-                  Upload Beat (MP3)<span class="required-star">*</span>
-                </label>
-                <input
-                  type="file"
-                  id="producer-beat"
-                  name="beatFile"
-                  accept=".mp3,audio/mpeg"
-                  required
-                />
+                <label for="producer-beat">Upload Beat (MP3)<span class="required-star">*</span></label>
+                <input type="file" id="producer-beat" name="beatFile" accept=".mp3,audio/mpeg" required />
                 <span class="helper-text">Instrumental only. No tagged beats, please.</span>
               </div>
 
               <div class="form-footer">
-                <button type="submit" class="btn-primary">
-                  Submit Beat Entry
-                </button>
+                <button type="submit" class="btn-primary">Submit Beat Entry</button>
                 <span>Selected producers will be contacted with next steps and credit details.</span>
               </div>
             </form>
@@ -1220,100 +793,94 @@
   <iframe name="hidden_iframe_visual" style="display:none;"></iframe>
   <iframe name="hidden_iframe_beat" style="display:none;"></iframe>
 
-<script>
-  // Scroll helper
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+  <script>
+    // Scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }
 
-  // Simple tabs logic
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const panels = {
-    rap: document.getElementById("panel-rap"),
-    visual: document.getElementById("panel-visual"),
-    beat: document.getElementById("panel-beat"),
-  };
+    // Simple tabs logic
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = {
+      rap: document.getElementById("panel-rap"),
+      visual: document.getElementById("panel-visual"),
+      beat: document.getElementById("panel-beat"),
+    };
 
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = btn.getAttribute("data-target");
-
-      // Activate button
-      tabButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // Show panel
-      Object.keys(panels).forEach((key) => {
-        panels[key].classList.toggle("active", key === target);
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-target");
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        Object.keys(panels).forEach((key) => {
+          panels[key].classList.toggle("active", key === target);
+        });
       });
     });
-  });
 
-  function handleSubmit(event, form, type) {
-    event.preventDefault();
+    function handleSubmit(event, form, type) {
+      event.preventDefault();
 
-    const btn = form.querySelector('button[type="submit"]');
-    if (!btn) return false;
+      const btn = form.querySelector('button[type="submit"]');
+      if (!btn) return false;
 
-    const originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
 
-    // Determine which file field is used for this competition
-    let fileFieldName;
-    if (type === "rap") fileFieldName = "audioFile";
-    else if (type === "visual") fileFieldName = "flyerFile";
-    else if (type === "beat") fileFieldName = "beatFile";
+      let fileFieldName;
+      if (type === "rap") fileFieldName = "audioFile";
+      else if (type === "visual") fileFieldName = "flyerFile";
+      else if (type === "beat") fileFieldName = "beatFile";
 
-    // Get file from the correct input
-    const fileInput = form.querySelector(`input[name="${fileFieldName}"]`);
-    const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+      const fileInput = form.querySelector(`input[name="${fileFieldName}"]`);
+      const file = fileInput && fileInput.files ? fileInput.files[0] : null;
 
-    if (!file) {
-      alert("Please choose a file to upload.");
-      btn.disabled = false;
-      btn.textContent = originalText;
+      if (!file) {
+        alert("Please choose a file to upload.");
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return false;
+      }
+
+      const iframe = document.querySelector(`iframe[name="hidden_iframe_${type}"]`);
+      if (iframe) {
+        // ✅ Guard against random iframe loads
+        iframe.dataset.pending = "1";
+        iframe.onload = () => {
+          if (iframe.dataset.pending === "1") {
+            iframe.dataset.pending = "0";
+            window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
+          }
+        };
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const result = reader.result || "";
+        const base64 = String(result).split(",")[1] || "";
+
+        // ✅ These now exist in the form again
+        form.querySelector('input[name="fileBase64"]').value = base64;
+        form.querySelector('input[name="fileName"]').value = file.name;
+        form.querySelector('input[name="fileType"]').value =
+          file.type || "application/octet-stream";
+
+        form.submit();
+      };
+
+      reader.onerror = () => {
+        alert("There was a problem reading your file. Please try again.");
+        btn.disabled = false;
+        btn.textContent = originalText;
+      };
+
+      reader.readAsDataURL(file);
+
       return false;
     }
-
-    // Redirect only after the hidden iframe receives a response
-    const iframe = document.querySelector(`iframe[name="hidden_iframe_${type}"]`);
-    if (iframe) {
-      iframe.onload = () => {
-        window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
-      };
-    }
-
-    // Base64-encode the file into hidden inputs (so Apps Script can decode it)
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      const result = reader.result || "";
-      const base64 = String(result).split(",")[1] || "";
-
-      form.querySelector('input[name="fileBase64"]').value = base64;
-      form.querySelector('input[name="fileName"]').value = file.name;
-      form.querySelector('input[name="fileType"]').value =
-        file.type || "application/octet-stream";
-
-      // Submit normally (multipart/form-data to the web app URL via hidden iframe)
-      form.submit();
-    };
-
-    reader.onerror = () => {
-      alert("There was a problem reading your file. Please try again.");
-      btn.disabled = false;
-      btn.textContent = originalText;
-    };
-
-    reader.readAsDataURL(file);
-
-    return false;
-  }
-</script>
-
+  </script>
 </body>
 </html>
