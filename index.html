@@ -67,40 +67,16 @@
 
     .logo-mark { display: flex; align-items: center; gap: 12px; }
 
-    .logo-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: conic-gradient(
-        from 180deg,
-        #ff3b7f,
-        #ff9f3b,
-        #29b3ff,
-        #8c5bff,
-        #ff3b7f
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 25px rgba(255, 59, 127, 0.6);
+    /* ✅ NEW: logo image styling (replaces badge + text) */
+    .site-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45));
     }
 
-    .logo-badge span { font-size: 18px; font-weight: 700; color: #ffffff; }
-
-    .logo-text { display: flex; flex-direction: column; gap: 2px; }
-
-    .logo-text-main {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-text-sub {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
+    @media (max-width: 880px) {
+      .site-logo { height: 40px; }
     }
 
     .tagline-pill {
@@ -262,7 +238,22 @@
       color: var(--muted);
     }
 
-    .section-sub { font-size: 13px; color: var(--muted); max-width: 360px; }
+    .section-sub { font-size: 13px; color: var(--muted); max-width: 420px; }
+
+    /* ✅ NEW: obvious inline “links” in the instructions */
+    .inline-link {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      white-space: nowrap;
+    }
+    .inline-link:hover { opacity: 0.9; }
+    .inline-link.rap { text-decoration-color: var(--accent); }
+    .inline-link.visual { text-decoration-color: var(--accent-blue); }
+    .inline-link.beat { text-decoration-color: var(--accent-purple); }
 
     .competition-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 
@@ -290,6 +281,20 @@
       background: rgba(255, 255, 255, 0.06);
       color: var(--muted);
     }
+
+    /* ✅ NEW: “link-like” treatment for tabs */
+    .tab-btn .tab-link {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+    }
+    .tab-btn[data-type="rap"] .tab-link { text-decoration-color: var(--accent); }
+    .tab-btn[data-type="visual"] .tab-link { text-decoration-color: var(--accent-blue); }
+    .tab-btn[data-type="beat"] .tab-link { text-decoration-color: var(--accent-purple); }
 
     .tab-btn.active {
       border-color: rgba(255, 255, 255, 0.5);
@@ -474,11 +479,8 @@
   <div class="page">
     <header>
       <div class="logo-mark">
-        <div class="logo-badge"><span>Z</span></div>
-        <div class="logo-text">
-          <span class="logo-text-main">New B @ The Z</span>
-          <span class="logo-text-sub">Creative Competition Hub</span>
-        </div>
+        <!-- ✅ REPLACED: icon + title with logo image -->
+        <img src="NewB@Z_logo.png" alt="New B @ The Z" class="site-logo" />
       </div>
       <div class="tagline-pill">
         <span class="tagline-dot"></span>
@@ -518,20 +520,26 @@
       <div class="section-heading">
         <h2>Competition Entries</h2>
         <p class="section-sub">
-          Choose your lane — or enter more than one. Read the details, prep your best work,
-          and upload using the forms below.
+          <strong>Choose your lane:</strong>
+          <span class="inline-link rap" onclick="openCompetition('rap')">MC/Rap</span>,
+          <span class="inline-link visual" onclick="openCompetition('visual')">Visual Flyer</span>, or
+          <span class="inline-link beat" onclick="openCompetition('beat')">Beat Production</span>.
+          Then upload using the form below.
         </p>
       </div>
 
       <div class="competition-tabs">
         <button class="tab-btn active" data-target="rap" data-type="rap">
-          MC / Rap Competition <span class="badge">16 Bar Verse</span>
+          <span class="tab-link">MC / Rap Competition <span aria-hidden="true">→</span></span>
+          <span class="badge">16 Bar Verse</span>
         </button>
         <button class="tab-btn" data-target="visual" data-type="visual">
-          Visual Flyer Competition <span class="badge">Show Artwork</span>
+          <span class="tab-link">Visual Flyer Competition <span aria-hidden="true">→</span></span>
+          <span class="badge">Show Artwork</span>
         </button>
         <button class="tab-btn" data-target="beat" data-type="beat">
-          Beat Production Competition <span class="badge">Promo Beat</span>
+          <span class="tab-link">Beat Production Competition <span aria-hidden="true">→</span></span>
+          <span class="badge">Promo Beat</span>
         </button>
       </div>
 
@@ -579,7 +587,6 @@
               onsubmit="return handleSubmit(event, this, 'rap');"
             >
               <input type="hidden" name="competitionType" value="rap" />
-              <!-- ✅ FIX: required hidden fields -->
               <input type="hidden" name="fileBase64" />
               <input type="hidden" name="fileName" />
               <input type="hidden" name="fileType" />
@@ -631,6 +638,17 @@
                 <div class="card-tagline">For designers, illustrators, and visual storytellers.</div>
               </div>
             </div>
+
+            <!-- ✅ NEW: asset download + required instruction -->
+            <div class="hero-cta-row" style="margin: 6px 0 10px;">
+              <a class="btn-secondary" href="NewB@TheZ_Asset_Pack.zip" download>
+                Download Required Asset Pack
+              </a>
+            </div>
+            <p class="note-text" style="margin-top: 0;">
+              <strong>Required:</strong> You must use the provided assets in your flyer submission and design it as a <strong>4 x 6</strong> graphic at <strong>300 DPI</strong>.
+            </p>
+
             <div class="prize-grid">
               <div>
                 <div class="prize-heading">Grand Prize</div>
@@ -661,7 +679,6 @@
               onsubmit="return handleSubmit(event, this, 'visual');"
             >
               <input type="hidden" name="competitionType" value="visual" />
-              <!-- ✅ FIX: required hidden fields -->
               <input type="hidden" name="fileBase64" />
               <input type="hidden" name="fileName" />
               <input type="hidden" name="fileType" />
@@ -739,7 +756,6 @@
               onsubmit="return handleSubmit(event, this, 'beat');"
             >
               <input type="hidden" name="competitionType" value="beat" />
-              <!-- ✅ FIX: required hidden fields -->
               <input type="hidden" name="fileBase64" />
               <input type="hidden" name="fileName" />
               <input type="hidden" name="fileType" />
@@ -808,16 +824,30 @@
       beat: document.getElementById("panel-beat"),
     };
 
+    function setActiveCompetition(target) {
+      // Activate button
+      tabButtons.forEach((b) => b.classList.remove("active"));
+      const btn = document.querySelector(`.tab-btn[data-target="${target}"]`);
+      if (btn) btn.classList.add("active");
+
+      // Show panel
+      Object.keys(panels).forEach((key) => {
+        panels[key].classList.toggle("active", key === target);
+      });
+    }
+
     tabButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const target = btn.getAttribute("data-target");
-        tabButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        Object.keys(panels).forEach((key) => {
-          panels[key].classList.toggle("active", key === target);
-        });
+        setActiveCompetition(target);
       });
     });
+
+    // ✅ NEW: used by "Choose your lane" links
+    function openCompetition(type) {
+      scrollToSection("competitions");
+      setActiveCompetition(type);
+    }
 
     function handleSubmit(event, form, type) {
       event.preventDefault();
@@ -846,7 +876,6 @@
 
       const iframe = document.querySelector(`iframe[name="hidden_iframe_${type}"]`);
       if (iframe) {
-        // ✅ Guard against random iframe loads
         iframe.dataset.pending = "1";
         iframe.onload = () => {
           if (iframe.dataset.pending === "1") {
@@ -862,7 +891,6 @@
         const result = reader.result || "";
         const base64 = String(result).split(",")[1] || "";
 
-        // ✅ These now exist in the form again
         form.querySelector('input[name="fileBase64"]').value = base64;
         form.querySelector('input[name="fileName"]').value = file.name;
         form.querySelector('input[name="fileType"]').value =
