@@ -947,9 +947,16 @@
 
           <div class="form-card">
             <form
-              onsubmit="return handleSubmit(event, 'rap');"
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_rap"
+              onsubmit="return handleSubmit(event, this, 'rap');"
             >
               <input type="hidden" name="competitionType" value="rap" />
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="mc-stage-name">
@@ -1045,9 +1052,16 @@
 
           <div class="form-card">
             <form
-              onsubmit="return handleSubmit(event, 'visual');"
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_visual"
+              onsubmit="return handleSubmit(event, this, 'visual');"
             >
               <input type="hidden" name="competitionType" value="visual" />
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="visual-name">
@@ -1137,9 +1151,16 @@
 
           <div class="form-card">
             <form
-              onsubmit="return handleSubmit(event, 'beat');"
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec"
+              enctype="multipart/form-data"
+              target="hidden_iframe_beat"
+              onsubmit="return handleSubmit(event, this, 'beat');"
             >
               <input type="hidden" name="competitionType" value="beat" />
+              <input type="hidden" name="fileBase64" />
+              <input type="hidden" name="fileName" />
+              <input type="hidden" name="fileType" />
 
               <div class="field-group">
                 <label for="producer-name">
@@ -1203,132 +1224,97 @@
     </footer>
   </div>
 
+  <!-- Hidden iframes for form POSTs -->
+  <iframe name="hidden_iframe_rap" style="display:none;"></iframe>
+  <iframe name="hidden_iframe_visual" style="display:none;"></iframe>
+  <iframe name="hidden_iframe_beat" style="display:none;"></iframe>
+
   <script>
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbx3grOSqvNTbMtieaKigpB01oQ7FTikCIJ30uYMf9UYpJZ7BYi4lA8yoiKv5K0nKshTrQ/exec";
-
-  // Scroll helper
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
-  }
 
-  // Simple tabs logic
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const panels = {
-    rap: document.getElementById("panel-rap"),
-    visual: document.getElementById("panel-visual"),
-    beat: document.getElementById("panel-beat"),
-  };
+    // Simple tabs logic
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = {
+      rap: document.getElementById("panel-rap"),
+      visual: document.getElementById("panel-visual"),
+      beat: document.getElementById("panel-beat"),
+    };
 
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = btn.getAttribute("data-target");
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-target");
 
-      // Activate button
-      tabButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+        // Activate button
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
-      // Show panel
-      Object.keys(panels).forEach((key) => {
-        panels[key].classList.toggle("active", key === target);
+        // Show panel
+        Object.keys(panels).forEach((key) => {
+          panels[key].classList.toggle("active", key === target);
+        });
       });
     });
-  });
 
-  async function handleSubmit(event, type) {
-    event.preventDefault();
+    function handleSubmit(event, form, type) {
+      event.preventDefault();
 
-    const form = event.target;
-    const btn = form.querySelector('button[type="submit"]');
-    if (!btn) return false;
+      const btn = form.querySelector('button[type="submit"]');
+      if (!btn) return false;
 
-    const originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
 
-    const formData = new FormData(form);
+      let fileFieldName;
+      if (type === "rap") fileFieldName = "audioFile";
+      else if (type === "visual") fileFieldName = "flyerFile";
+      else if (type === "beat") fileFieldName = "beatFile";
 
-    let fileFieldName;
-    if (type === "rap") fileFieldName = "audioFile";
-    else if (type === "visual") fileFieldName = "flyerFile";
-    else if (type === "beat") fileFieldName = "beatFile";
+      const fileInput = form.querySelector(`input[name="${fileFieldName}"]`);
+      const file = fileInput && fileInput.files ? fileInput.files[0] : null;
 
-    const file = formData.get(fileFieldName);
-    if (!file || !file.name) {
-      alert("Please choose a file to upload.");
-      btn.disabled = false;
-      btn.textContent = originalText;
-      return false;
-    }
-
-    try {
-      const base64 = await fileToBase64(file);
-
-      const payload = {
-        competitionType: type,
-        fileName: file.name,
-        fileType: file.type,
-        fileBase64: base64,
-      };
-
-      // Add all non-file fields into payload
-      formData.forEach((value, key) => {
-        if (value instanceof File) return;
-        payload[key] = value;
-      });
-
-      const res = await fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const text = await res.text();
-      console.log("Server response:", text);
-
-      // Treat any non-2xx or "ERROR: ..." response as a failure
-      if (!res.ok || (typeof text === "string" && text.startsWith("ERROR"))) {
-        throw new Error(text || `HTTP ${res.status}`);
+      if (!file) {
+        alert("Please choose a file to upload.");
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return false;
       }
 
-      alert(
-        "Thank you! Your " +
-          type.toUpperCase() +
-          " competition entry has been submitted."
-      );
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      alert(
-        "There was a problem submitting your entry.\n\n" +
-          (err && err.message ? String(err.message) : "")
-      );
-    } finally {
-      btn.disabled = false;
-      btn.textContent = originalText;
-    }
-
-    return false;
-  }
-
-  function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => {
-        const result = reader.result;
-        const base64 = result.split(",")[1]; // strip "data:...;base64,"
-        resolve(base64);
-      };
-      reader.onerror = (err) => reject(err);
-      reader.readAsDataURL(file);
-    });
-  }
-</script>
+        const result = reader.result || "";
+        const base64 = String(result).split(",")[1] || "";
 
+        form.querySelector('input[name="fileBase64"]').value = base64;
+        form.querySelector('input[name="fileName"]').value = file.name;
+        form.querySelector('input[name="fileType"]').value =
+          file.type || "application/octet-stream";
+
+        // Submit normally (NOT fetch) to Apps Script — avoids CORS
+        form.submit();
+
+        // Redirect after a short delay (adjust path if needed)
+        setTimeout(() => {
+          window.location.href = `thank-you.html?type=${encodeURIComponent(type)}`;
+        }, 900);
+      };
+
+      reader.onerror = () => {
+        alert("There was a problem reading your file. Please try again.");
+        btn.disabled = false;
+        btn.textContent = originalText;
+      };
+
+      reader.readAsDataURL(file);
+
+      return false;
+    }
+  </script>
 </body>
 </html>
