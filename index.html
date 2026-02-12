@@ -67,16 +67,20 @@
 
     .logo-mark { display: flex; align-items: center; gap: 12px; }
 
-    /* ✅ NEW: logo image styling (replaces badge + text) */
+    /* ✅ UPDATED: bigger logo image styling */
     .site-logo {
-      height: 44px;
+      height: 64px;
       width: auto;
       display: block;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45));
     }
 
     @media (max-width: 880px) {
-      .site-logo { height: 40px; }
+      .site-logo { height: 56px; }
+    }
+
+    @media (max-width: 520px) {
+      .site-logo { height: 52px; }
     }
 
     .tagline-pill {
@@ -240,7 +244,6 @@
 
     .section-sub { font-size: 13px; color: var(--muted); max-width: 420px; }
 
-    /* ✅ NEW: obvious inline “links” in the instructions */
     .inline-link {
       color: var(--text);
       text-decoration: underline;
@@ -282,7 +285,6 @@
       color: var(--muted);
     }
 
-    /* ✅ NEW: “link-like” treatment for tabs */
     .tab-btn .tab-link {
       text-decoration: underline;
       text-decoration-thickness: 2px;
@@ -479,7 +481,6 @@
   <div class="page">
     <header>
       <div class="logo-mark">
-        <!-- ✅ REPLACED: icon + title with logo image -->
         <img src="NewB@Z_logo.png" alt="New B @ The Z" class="site-logo" />
       </div>
       <div class="tagline-pill">
@@ -639,7 +640,6 @@
               </div>
             </div>
 
-            <!-- ✅ NEW: asset download + required instruction -->
             <div class="hero-cta-row" style="margin: 6px 0 10px;">
               <a class="btn-secondary" href="NewB@TheZ_Asset_Pack.zip" download>
                 Download Required Asset Pack
@@ -804,19 +804,16 @@
     </footer>
   </div>
 
-  <!-- Hidden iframes for form POSTs -->
   <iframe name="hidden_iframe_rap" style="display:none;"></iframe>
   <iframe name="hidden_iframe_visual" style="display:none;"></iframe>
   <iframe name="hidden_iframe_beat" style="display:none;"></iframe>
 
   <script>
-    // Scroll helper
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // Simple tabs logic
     const tabButtons = document.querySelectorAll(".tab-btn");
     const panels = {
       rap: document.getElementById("panel-rap"),
@@ -825,12 +822,10 @@
     };
 
     function setActiveCompetition(target) {
-      // Activate button
       tabButtons.forEach((b) => b.classList.remove("active"));
       const btn = document.querySelector(`.tab-btn[data-target="${target}"]`);
       if (btn) btn.classList.add("active");
 
-      // Show panel
       Object.keys(panels).forEach((key) => {
         panels[key].classList.toggle("active", key === target);
       });
@@ -843,7 +838,6 @@
       });
     });
 
-    // ✅ NEW: used by "Choose your lane" links
     function openCompetition(type) {
       scrollToSection("competitions");
       setActiveCompetition(type);
