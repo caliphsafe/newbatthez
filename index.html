@@ -57,30 +57,83 @@
       margin: 0 auto;
     }
 
+    /* ✅ UPDATED: header layout so the logo can be large + look good */
     header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       margin-bottom: 32px;
     }
 
-    .logo-mark { display: flex; align-items: center; gap: 12px; }
+    .logo-mark {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
 
-    /* ✅ UPDATED: bigger logo image styling */
+    .logo-mark .logo-frame {
+      width: 100%;
+      max-width: 920px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: radial-gradient(circle at top, rgba(31, 16, 52, 0.65), rgba(6, 6, 18, 0.35));
+      box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+      padding: 16px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      position: relative;
+    }
+
+    .logo-mark .logo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 12% 0%, rgba(255,59,127,0.18), transparent 55%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .logo-mark .logo-frame::after {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 88% 100%, rgba(41,179,255,0.16), transparent 55%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
     .site-logo {
-      height: 500px;
-      width: auto;
+      height: 250px;
+      width: 100%;
+      max-width: 100%;
+      object-fit: contain;
       display: block;
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45));
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,0.55));
     }
 
     @media (max-width: 880px) {
-      .site-logo { height: 56px; }
+      header { align-items: stretch; }
+      .logo-mark { justify-content: center; }
+      .logo-mark .logo-frame { padding: 14px 14px; border-radius: 24px; }
+      .site-logo { height: 190px; }
+      .tagline-pill { align-self: center; }
+      .page { padding-inline: 18px; }
     }
 
-    @media (max-width: 520px) {
-      .site-logo { height: 52px; }
+    @media (max-width: 600px) {
+      .page { padding-inline: 16px; }
+      .logo-mark .logo-frame { padding: 12px 12px; border-radius: 22px; }
+      .site-logo { height: 150px; }
+    }
+
+    @media (max-width: 420px) {
+      .site-logo { height: 130px; }
     }
 
     .tagline-pill {
@@ -115,13 +168,6 @@
 
     @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; }
-      header { flex-direction: column; align-items: flex-start; }
-      .tagline-pill { align-self: flex-start; }
-      .page { padding-inline: 18px; }
-    }
-
-    @media (max-width: 600px) {
-      .page { padding-inline: 16px; }
     }
 
     .hero-main-title {
@@ -481,7 +527,9 @@
   <div class="page">
     <header>
       <div class="logo-mark">
-        <img src="NewB@Z_logo.png" alt="New B @ The Z" class="site-logo" />
+        <div class="logo-frame">
+          <img src="NewB@Z_logo.png" alt="New B @ The Z" class="site-logo" />
+        </div>
       </div>
       <div class="tagline-pill">
         <span class="tagline-dot"></span>
