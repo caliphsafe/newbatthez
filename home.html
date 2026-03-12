@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>New B @ The Z</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#050510;
+--card:rgba(16,16,40,0.9);
+--accent:#ff3b7f;
+--accent-blue:#29b3ff;
+--text:#f5f5ff;
+--muted:#9a9ab8;
+--border-subtle:rgba(255,255,255,0.08);
+--radius-lg:20px;
+--radius-xl:28px;
+--radius-pill:999px;
+--shadow-soft:0 20px 60px rgba(0,0,0,0.65);
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:radial-gradient(circle at top,#191936 0,#050510 50%,#020209 100%);
+color:var(--text);
+}
+
+.page{
+max-width:1100px;
+margin:auto;
+padding:24px 18px 60px;
+}
+
+header{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:16px;
+margin-bottom:40px;
+}
+
+.logo-frame{
+width:100%;
+max-width:900px;
+border-radius:var(--radius-xl);
+border:1px solid rgba(255,255,255,0.10);
+background:radial-gradient(circle at top,rgba(31,16,52,0.65),rgba(6,6,18,0.35));
+box-shadow:var(--shadow-soft);
+padding:16px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.site-logo{
+height:140px;
+width:100%;
+object-fit:contain;
+}
+
+.tagline{
+padding:8px 16px;
+border-radius:var(--radius-pill);
+border:1px solid rgba(255,255,255,0.1);
+background:radial-gradient(circle at top left,#1f1f3a,#070713);
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.hero{
+text-align:center;
+margin-bottom:40px;
+}
+
+.hero h1{
+font-size:44px;
+margin-bottom:12px;
+}
+
+.hero span{
+background:linear-gradient(120deg,#ff3b7f,#ff9f3b,#29b3ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+color:var(--muted);
+font-size:16px;
+line-height:1.6;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+
+.card{
+border-radius:var(--radius-lg);
+background:var(--card);
+border:1px solid var(--border-subtle);
+box-shadow:var(--shadow-soft);
+padding:26px;
+display:flex;
+flex-direction:column;
+gap:12px;
+transition:transform .18s ease;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+.card-title{
+font-size:22px;
+margin:0;
+}
+
+.card-desc{
+color:var(--muted);
+font-size:14px;
+line-height:1.6;
+}
+
+.card-btn{
+margin-top:10px;
+align-self:flex-start;
+padding:10px 18px;
+border-radius:var(--radius-pill);
+background:linear-gradient(135deg,var(--accent),var(--accent-blue));
+border:none;
+font-size:13px;
+font-weight:600;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:white;
+cursor:pointer;
+}
+
+footer{
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid var(--border-subtle);
+font-size:11px;
+color:var(--muted);
+display:flex;
+justify-content:center;
+}
+
+/* mobile */
+
+@media (max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.site-logo{
+height:110px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<div class="logo-frame">
+<img src="NewB@Z_logo.png" class="site-logo">
+</div>
+
+<div class="tagline">
+NEW BEDFORD • HIP HOP • COMMUNITY
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>
+Welcome to <span>New B @ The Z</span>
+</h1>
+
+<p>
+Explore the competitions, artists, and special restaurant promotions connected to the first true hip hop show on the Zeiterion stage.
+</p>
+
+</section>
+
+<section class="grid">
+
+<!-- competitions -->
+
+<div class="card">
+
+<h2 class="card-title">Competitions</h2>
+
+<p class="card-desc">
+Enter the official New B @ The Z creative competitions including the MC/Rap contest, Visual Flyer design challenge, and Beat Production competition.
+</p>
+
+<a href="competition.html">
+<button class="card-btn">
+Enter Competition
+</button>
+</a>
+
+</div>
+
+<!-- artists -->
+
+<div class="card">
+
+<h2 class="card-title">Artists</h2>
+
+<p class="card-desc">
+Meet the artists and DJ performing at the show including Caliph, Resto, SiahLaw and DJ Fresco.
+</p>
+
+<a href="artists.html">
+<button class="card-btn">
+View Artists
+</button>
+</a>
+
+</div>
+
+<!-- menu -->
+
+<div class="card">
+
+<h2 class="card-title">Restaurant Menu</h2>
+
+<p class="card-desc">
+Support participating local restaurants and grab special New B @ The Z menu items that come bundled with a ticket to the show.
+</p>
+
+<a href="menu.html">
+<button class="card-btn">
+View Menu
+</button>
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© New B @ The Z • New Bedford, MA
+
+</footer>
+
+</div>
+
+</body>
+</html>
