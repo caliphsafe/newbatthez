@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New B @ The Z – Artists & DJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Meet the artists and DJ behind New B @ The Z: Caliph, Resto, SiahLaw, and DJ Fresco."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-alt: #0b0b1c;
+      --card: rgba(16, 16, 40, 0.9);
+      --accent: #ff3b7f;
+      --accent-soft: rgba(255, 59, 127, 0.16);
+      --accent-blue: #29b3ff;
+      --accent-purple: #8c5bff;
+      --text: #f5f5ff;
+      --muted: #9a9ab8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.65);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #191936 0, #050510 50%, #020209 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 18px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .logo-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-frame {
+      width: 100%;
+      max-width: 920px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: radial-gradient(circle at top, rgba(31, 16, 52, 0.65), rgba(6, 6, 18, 0.35));
+      box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+      padding: 16px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      position: relative;
+    }
+
+    .logo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 12% 0%, rgba(255,59,127,0.18), transparent 55%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .logo-frame::after {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 88% 100%, rgba(41,179,255,0.16), transparent 55%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .site-logo {
+      height: 170px;
+      width: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,0.55));
+    }
+
+    .tagline-pill {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at top left, #1f1f3a, #070713);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tagline-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255, 59, 127, 0.7);
+    }
+
+    .hero-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 42px;
+    }
+
+    .feature-image-card,
+    .feature-copy-card,
+    .artist-card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+    }
+
+    .feature-image-card {
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .feature-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+    }
+
+    .feature-copy-card {
+      padding: 24px 24px 26px;
+      background:
+        radial-gradient(circle at top right, rgba(41,179,255,0.10), transparent 35%),
+        radial-gradient(circle at top left, rgba(255,59,127,0.10), transparent 35%),
+        var(--card);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(8, 8, 22, 0.85);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      box-shadow: 0 0 10px rgba(255,59,127,0.65);
+    }
+
+    .page-title {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 4.6vw, 46px);
+      line-height: 1.04;
+      letter-spacing: 0.02em;
+    }
+
+    .page-title .highlight {
+      background: linear-gradient(120deg, #ff3b7f, #ff9f3b, #29b3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .show-copy {
+      margin: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 11px 20px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      padding: 10px 18px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 30, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(20, 20, 50, 0.95);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .artist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .artist-card {
+      padding: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(140,91,255,0.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(255,59,127,0.08), transparent 30%),
+        var(--card);
+    }
+
+    .artist-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .artist-name {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .artist-role {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(8, 8, 22, 0.9);
+      color: var(--muted);
+    }
+
+    .artist-role.caliph { border-color: rgba(255, 59, 127, 0.65); color: var(--accent); }
+    .artist-role.resto { border-color: rgba(41, 179, 255, 0.7); color: var(--accent-blue); }
+    .artist-role.siahlaw { border-color: rgba(140, 91, 255, 0.7); color: var(--accent-purple); }
+    .artist-role.fresco { border-color: rgba(255, 159, 59, 0.7); color: #ffb15c; }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .social-link {
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(9, 9, 24, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .social-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(18, 18, 42, 0.95);
+    }
+
+    .artist-bio {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-image {
+        min-height: 320px;
+      }
+
+      .site-logo {
+        height: 140px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .artist-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding-inline: 16px;
+      }
+
+      .site-logo {
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .logo-frame {
+        padding: 12px 12px;
+        border-radius: 22px;
+      }
+
+      .site-logo {
+        height: 96px;
+      }
+
+      .feature-copy-card,
+      .artist-card {
+        padding: 18px;
+      }
+
+      .page-title {
+        font-size: 32px;
+      }
+
+      .artist-name {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-frame">
+          <img src="NewB@Z_logo.png" alt="New B @ The Z" class="site-logo" />
+        </div>
+      </div>
+      <div class="tagline-pill">
+        <span class="tagline-dot"></span>
+        <span>Artists • DJ • Community • Hip Hop</span>
+      </div>
+    </header>
+
+    <section class="hero-feature">
+      <div class="feature-image-card">
+        <img src="nbz.png" alt="Caliph, Resto, SiahLaw, and DJ Fresco" class="feature-image" />
+      </div>
+
+      <div class="feature-copy-card">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Meet The Show</span>
+        </div>
+
+        <h1 class="page-title">
+          The Artists Behind <span class="highlight">New B @ The Z</span>
+        </h1>
+
+        <p class="show-copy">
+          Local greats Caliph, Hendrick Hernandez-Resto, and Siahlaw perform for the first time on the stage that has loomed large for them growing up in New Bedford. The seasoned artists of the game unite to demonstrate that working together can truly amplify the genre. Backed by DJ Fresco and The Seshn Band, the trio offer an epic performance that’s not to be missed by fans of hip-hop or supporters of the community.
+        </p>
+
+        <div class="cta-row">
+          <a
+            class="btn-primary"
+            href="https://zeiterion.org/events/new-b-at-the-z"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Buy Your Tickets
+            <span>↗</span>
+          </a>
+
+          <a class="btn-secondary" href="#artists">
+            Meet The Lineup
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <main id="artists">
+      <div class="section-heading">
+        <h2>Featured Artists & DJ</h2>
+        <p class="section-sub">
+          Explore the lineup for this historic night at the Zeiterion and connect with each artist directly through their social platforms.
+        </p>
+      </div>
+
+      <section class="artist-grid">
+        <article class="artist-card">
+          <div class="artist-top">
+            <div>
+              <h3 class="artist-name">Caliph</h3>
+              <div class="artist-role caliph">Featured Artist</div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+          </div>
+
+          <p class="artist-bio">
+            Caliph is one of New Bedford’s standout creative voices, known for pairing vision, intention, and artistry across music, design, and community-centered work. His presence on New B @ The Z reflects both years of craft and a commitment to pushing the city’s hip-hop culture forward on one of its most iconic stages.
+          </p>
+        </article>
+
+        <article class="artist-card">
+          <div class="artist-top">
+            <div>
+              <h3 class="artist-name">Resto</h3>
+              <div class="artist-role resto">Featured Artist</div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+          </div>
+
+          <p class="artist-bio">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere, nisl in bibendum posuere, justo massa suscipit risus, vitae feugiat turpis magna a nibh. Sed vel sem ac justo porttitor feugiat non a nunc.
+          </p>
+        </article>
+
+        <article class="artist-card">
+          <div class="artist-top">
+            <div>
+              <h3 class="artist-name">SiahLaw</h3>
+              <div class="artist-role siahlaw">Featured Artist</div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+          </div>
+
+          <p class="artist-bio">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at sem sem. Donec commodo, massa vel sollicitudin ultrices, velit nulla dictum ipsum, in faucibus justo odio quis lorem. Curabitur efficitur ultrices elit.
+          </p>
+        </article>
+
+        <article class="artist-card">
+          <div class="artist-top">
+            <div>
+              <h3 class="artist-name">DJ Fresco</h3>
+              <div class="artist-role fresco">DJ</div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+
+          <p class="artist-bio">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim velit ut augue volutpat, et luctus mauris facilisis. Cras tempus nunc quis nisl interdum, sit amet feugiat dui pellentesque.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>© New B @ The Z • New Bedford, MA</span>
+      <span>Support the movement. Support the culture.</span>
+    </footer>
+  </div>
+</body>
+</html>
