@@ -360,6 +360,49 @@
         font-size: 20px;
       }
     }
+    .main-nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin-bottom:28px;
+}
+
+.nav-link{
+padding:8px 16px;
+border-radius:999px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+border:1px solid rgba(255,255,255,0.12);
+background:rgba(10,10,30,0.8);
+color:var(--muted);
+transition:all .18s ease;
+}
+
+.nav-link:hover{
+background:rgba(20,20,50,0.95);
+border-color:rgba(255,255,255,0.3);
+color:var(--text);
+transform:translateY(-1px);
+}
+
+.nav-ticket{
+padding:8px 18px;
+border-radius:999px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+background:linear-gradient(135deg,var(--accent),var(--accent-blue));
+border:none;
+color:white;
+font-weight:600;
+transition:transform .18s ease;
+}
+
+.nav-ticket:hover{
+transform:translateY(-1px);
+}
   </style>
 </head>
 
@@ -376,7 +419,23 @@
         <span>Food • Tickets • Community • Hip Hop</span>
       </div>
     </header>
+<nav class="main-nav">
 
+<a href="index.html" class="nav-link">Home</a>
+
+<a href="competition.html" class="nav-link">Competitions</a>
+
+<a href="artists.html" class="nav-link">Artists</a>
+
+<a href="menu.html" class="nav-link">Menu</a>
+
+<a href="https://zeiterion.org/events/new-b-at-the-z"
+   class="nav-ticket"
+   target="_blank">
+Buy Tickets
+</a>
+
+</nav>
     <section class="intro-card">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
