@@ -179,7 +179,45 @@ height:110px;
 }
 
 }
+.ticket-section{
+margin-bottom:40px;
+}
 
+.ticket-card{
+border-radius:var(--radius-lg);
+background:var(--card);
+border:1px solid var(--border-subtle);
+box-shadow:var(--shadow-soft);
+padding:32px;
+text-align:center;
+}
+
+.ticket-title{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.ticket-desc{
+max-width:600px;
+margin:auto;
+color:var(--muted);
+font-size:15px;
+line-height:1.6;
+margin-bottom:18px;
+}
+
+.ticket-btn{
+padding:12px 24px;
+border-radius:var(--radius-pill);
+background:linear-gradient(135deg,var(--accent),var(--accent-blue));
+border:none;
+color:white;
+font-size:14px;
+font-weight:600;
+letter-spacing:.08em;
+text-transform:uppercase;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -210,28 +248,27 @@ Explore the competitions, artists, and special restaurant promotions connected t
 </p>
 
 </section>
+<section class="ticket-section">
 
-<section class="grid">
+<div class="ticket-card">
 
-<!-- buy tickets -->
+<h2 class="ticket-title">Get Your Tickets</h2>
 
-<div class="card">
-
-<h2 class="card-title">Buy Tickets</h2>
-
-<p class="card-desc">
-Get your tickets for New B @ The Z at the Zeiterion Performing Arts Center and experience the show live with Caliph, Resto, SiahLaw, DJ Fresco and The Seshn Band.
+<p class="ticket-desc">
+Experience the first true hip hop show on the Zeiterion stage featuring Caliph, Resto, SiahLaw, DJ Fresco and The Seshn Band.
+Secure your seat now.
 </p>
 
 <a href="https://zeiterion.org/events/new-b-at-the-z" target="_blank">
-<button class="card-btn">
+<button class="ticket-btn">
 Buy Tickets
 </button>
 </a>
 
 </div>
 
-<!-- competitions -->
+</section>
+<section class="grid">
 
 <!-- competitions -->
 
