@@ -505,6 +505,92 @@
 
     .form-footer span { font-size: 11px; color: var(--muted); }
 
+    /* ✅ NEW: supporter acknowledgment section */
+    .supporters-section {
+      margin-top: 34px;
+      padding: 22px 20px 24px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at top left, rgba(255,59,127,0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(41,179,255,0.08), transparent 30%),
+        var(--card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .supporters-title {
+      margin: 0 0 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .supporters-copy {
+      max-width: 760px;
+      margin: 0 auto 18px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .supporters-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 18px 24px;
+    }
+
+    .supporter-logo-wrap {
+      min-height: 70px;
+      min-width: 130px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(9, 9, 24, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .supporter-logo {
+      max-height: 42px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
+      opacity: 0.96;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    @media (max-width: 600px) {
+      .supporters-section {
+        margin-top: 28px;
+        padding: 18px 16px 20px;
+      }
+
+      .supporters-copy {
+        font-size: 13px;
+      }
+
+      .supporters-logos {
+        gap: 12px 14px;
+      }
+
+      .supporter-logo-wrap {
+        min-width: 108px;
+        min-height: 60px;
+        padding: 8px 10px;
+      }
+
+      .supporter-logo {
+        max-height: 34px;
+        max-width: 108px;
+      }
+    }
+
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -609,8 +695,7 @@
                 <div class="prize-heading">Grand Prize</div>
                 <ul class="prize-list">
                   <li>Performance slot at the New B @ The Z pre-show speakeasy</li>
-                  <li>A 3 hour recording session at CTNT Studios in New Bedford, MA </li>
-
+                  <li>A 3 hour recording session at CTNT Studios in New Bedford, MA</li>
                 </ul>
               </div>
               <div>
@@ -694,7 +779,7 @@
               </a>
             </div>
             <p class="note-text" style="margin-top: 0;">
-              <strong>Required:</strong> You must use the provided assets in your flyer submission and design it as a <strong>4 x 6</strong> graphic at <strong>300 DPI</strong> and submit your desing by <strong>Friday, March 20th, 2026</strong>.
+              <strong>Required:</strong> You must use the provided assets in your flyer submission and design it as a <strong>4 x 6</strong> graphic at <strong>300 DPI</strong> and submit your design by <strong>Friday, March 20th, 2026</strong>.
             </p>
 
             <div class="prize-grid">
@@ -780,7 +865,6 @@
                   <li>Your beat featured in official promo media for the show</li>
                   <li>Midi controller</li>
                   <li>Headphones</li>
-      
                 </ul>
               </div>
               <div>
@@ -839,6 +923,26 @@
                 <span>Selected producers will be contacted with next steps and credit details.</span>
               </div>
             </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ✅ NEW: supporter section -->
+      <section class="supporters-section" aria-labelledby="supporters-title">
+        <h2 class="supporters-title" id="supporters-title">Supporters & Community Partners</h2>
+        <p class="supporters-copy">
+          All competitions, ancillary programming, and prizes connected to <strong>New B @ The Z</strong> are made possible through the generous contributions of <strong>J&amp;J Driving School</strong>, <strong>Reliable Bus Lines Inc.</strong>, and <strong>Sparrows Eye</strong>. Their support helps create meaningful opportunities for local artists, designers, producers, and the broader New Bedford community.
+        </p>
+
+        <div class="supporters-logos">
+          <div class="supporter-logo-wrap">
+            <img src="JNJ.png" alt="J&J Driving School" class="supporter-logo" />
+          </div>
+          <div class="supporter-logo-wrap">
+            <img src="Reliable_Bus.png" alt="Reliable Bus Lines Inc." class="supporter-logo" />
+          </div>
+          <div class="supporter-logo-wrap">
+            <img src="Sparrows_Eye.png" alt="Sparrows Eye" class="supporter-logo" />
           </div>
         </div>
       </section>
