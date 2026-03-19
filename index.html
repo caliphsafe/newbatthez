@@ -535,35 +535,34 @@
       color: var(--muted);
     }
 
-    .supporters-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 18px 24px;
-    }
+  .supporters-logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
 
     .supporter-logo-wrap {
-      min-height: 70px;
-      min-width: 130px;
-      padding: 10px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(9, 9, 24, 0.72);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  min-height: 110px;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(9, 9, 24, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .supporter-logo {
-      max-height: 58px;
-      width: auto;
-      max-width: 180px;
-      object-fit: contain;
-      display: block;
-      opacity: 0.96;
-      filter: saturate(1.02) contrast(1.02);
-    }
+  width: 100%;
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.96;
+  filter: saturate(1.02) contrast(1.02);
+}
 
     @media (max-width: 600px) {
       .supporters-section {
@@ -576,19 +575,21 @@
       }
 
       .supporters-logos {
-        gap: 12px 14px;
-      }
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
 
-      .supporter-logo-wrap {
-        min-width: 108px;
-        min-height: 60px;
-        padding: 8px 10px;
-      }
+.supporter-logo-wrap {
+  min-height: 84px;
+  width: 100%;
+  padding: 10px 12px;
+}
 
-      .supporter-logo {
-        max-height: 34px;
-        max-width: 108px;
-      }
+.supporter-logo {
+  width: 100%;
+  max-width: 100%;
+  max-height: 56px;
+}
     }
 
     footer {
